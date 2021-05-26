@@ -45,6 +45,6 @@ class TestCalculator(unittest.TestCase):
         actualNumOfBuzz = actual.count('Buzz')
         # self.assertEqual(actual, expected
         # if (actual.find(expected[0])):
-        self.assertTrue(33 == actualNumOfBuzz)
+        self.assertTrue(20 == actualNumOfBuzz)
 
 
