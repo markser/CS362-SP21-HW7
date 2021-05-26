@@ -7,8 +7,19 @@ from unittest.mock import patch
 from io import StringIO
 
 class TestLeapYear(unittest.TestCase):
-        @patch('builtins.input', side_effect=['0'])
-    def test_year_zero(self,mock_input):
+    @patch('builtins.input', side_effect=['400'])
+    def test_year_divisible_by_400(self,mock_input):
+        # with unittest.mock.patch('volumeOfCube.retrieve_input', return_value=-1):
+        capturedOutput = io.StringIO()                  # Create StringIO object
+        sys.stdout = capturedOutput                     #  and redirect stdout.
+        leapYear.calcLeapYear(400)                                    # Call function.
+        sys.stdout = sys.__stdout__                     # Reset redirect.
+        expected = ['400 is a leap year', '']
+        actual = capturedOutput.getvalue().split('\n')
+        self.assertEqual(actual, expected)
+    
+    @patch('builtins.input', side_effect=['0'])
+    def test_year_divisible_by_0(self,mock_input):
         # with unittest.mock.patch('volumeOfCube.retrieve_input', return_value=-1):
         capturedOutput = io.StringIO()                  # Create StringIO object
         sys.stdout = capturedOutput                     #  and redirect stdout.
