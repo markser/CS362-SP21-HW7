@@ -1,3 +1,5 @@
 def fizzBuzz():
-    for index in (range(1,101)):
-        print(index)
+    for num in (range(1,101)):
+        if num % 3 == 0:
+            print("Fizz")
+        print(num)

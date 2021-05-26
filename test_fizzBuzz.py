@@ -28,9 +28,9 @@ class TestCalculator(unittest.TestCase):
         sys.stdout = capturedOutput                     #  and redirect stdout.
         fizzBuzz.fizzBuzz()                                     # Call function.
         sys.stdout = sys.__stdout__                     # Reset redirect.
-        expected = ['32', '']
         actual = capturedOutput.getvalue().split('\n')
+        actualNumOfFizz = actual.count('Fizz')
         # self.assertEqual(actual, expected
         # if (actual.find(expected[0])):
-        self.assertTrue(expected[0] in actual)
+        self.assertTrue(33 == actualNumOfFizz)
 
