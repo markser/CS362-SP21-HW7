@@ -30,9 +30,10 @@ class TestCalculator(unittest.TestCase):
         sys.stdout = sys.__stdout__                     # Reset redirect.
         actual = capturedOutput.getvalue().split('\n')
         actualNumOfFizz = actual.count('Fizz')
+        # print(actualNumOfFizz)
         # self.assertEqual(actual, expected
         # if (actual.find(expected[0])):
-        self.assertTrue(33 == actualNumOfFizz)
+        self.assertTrue(27 == actualNumOfFizz)
 
 
     def test_number_buzz(self):
@@ -43,9 +44,10 @@ class TestCalculator(unittest.TestCase):
         sys.stdout = sys.__stdout__                     # Reset redirect.
         actual = capturedOutput.getvalue().split('\n')
         actualNumOfBuzz = actual.count('Buzz')
+        # print(actualNumOfBuzz)
         # self.assertEqual(actual, expected
         # if (actual.find(expected[0])):
-        self.assertTrue(20 == actualNumOfBuzz)
+        self.assertTrue(14 == actualNumOfBuzz)
 
     def test_number_fizzbuzz(self):
         # with unittest.mock.patch('volumeOfCube.retrieve_input', return_value=-1):
@@ -54,9 +56,10 @@ class TestCalculator(unittest.TestCase):
         fizzBuzz.fizzBuzz()                                     # Call function.
         sys.stdout = sys.__stdout__                     # Reset redirect.
         actual = capturedOutput.getvalue().split('\n')
-        actualNumOfBuzz = actual.count('FizzBuzz')
+        actualNumOfFizzBuzz = actual.count('FizzBuzz')
+        # print(actualNumOfFizzBuzz)
         # self.assertEqual(actual, expected
         # if (actual.find(expected[0])):
-        self.assertTrue(20 == actualNumOfBuzz)
+        self.assertTrue(6 == actualNumOfFizzBuzz)
 
 
