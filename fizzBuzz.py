@@ -1,4 +1,3 @@
 def fizzBuzz():
-    for index in range(1,100):
+    for index in (range(1,101)):
         print(index)
-    
