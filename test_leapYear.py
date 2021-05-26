@@ -8,7 +8,7 @@ from io import StringIO
 
 class TestLeapYear(unittest.TestCase):
     @patch('builtins.input', side_effect=['400'])
-    def test_year_divisible_by_400(self,mock_input):
+    def test_year_divisible_by_400_true(self,mock_input):
         # with unittest.mock.patch('volumeOfCube.retrieve_input', return_value=-1):
         capturedOutput = io.StringIO()                  # Create StringIO object
         sys.stdout = capturedOutput                     #  and redirect stdout.
@@ -19,13 +19,35 @@ class TestLeapYear(unittest.TestCase):
         self.assertEqual(actual, expected)
     
     @patch('builtins.input', side_effect=['0'])
-    def test_year_divisible_by_0(self,mock_input):
+    def test_year_divisible_by_400_false(self,mock_input):
         # with unittest.mock.patch('volumeOfCube.retrieve_input', return_value=-1):
         capturedOutput = io.StringIO()                  # Create StringIO object
         sys.stdout = capturedOutput                     #  and redirect stdout.
-        leapYear.calcLeapYear(0)                                    # Call function.
+        leapYear.calcLeapYear(401)                                    # Call function.
         sys.stdout = sys.__stdout__                     # Reset redirect.
-        expected = ['0 is a leap year', '']
+        expected = ['401 is not a leap year', '']
+        actual = capturedOutput.getvalue().split('\n')
+        self.assertEqual(actual, expected)
+
+    @patch('builtins.input', side_effect=['100'])
+    def test_year_divisible_by_100_true(self,mock_input):
+        # with unittest.mock.patch('volumeOfCube.retrieve_input', return_value=-1):
+        capturedOutput = io.StringIO()                  # Create StringIO object
+        sys.stdout = capturedOutput                     #  and redirect stdout.
+        leapYear.calcLeapYear(100)                                    # Call function.
+        sys.stdout = sys.__stdout__                     # Reset redirect.
+        expected = ['100 is a leap year', '']
+        actual = capturedOutput.getvalue().split('\n')
+        self.assertEqual(actual, expected)
+    
+    @patch('builtins.input', side_effect=['101'])
+    def test_year_divisible_by_100_false(self,mock_input):
+        # with unittest.mock.patch('volumeOfCube.retrieve_input', return_value=-1):
+        capturedOutput = io.StringIO()                  # Create StringIO object
+        sys.stdout = capturedOutput                     #  and redirect stdout.
+        leapYear.calcLeapYear(101)                                    # Call function.
+        sys.stdout = sys.__stdout__                     # Reset redirect.
+        expected = ['101 is not a leap year', '']
         actual = capturedOutput.getvalue().split('\n')
         self.assertEqual(actual, expected)
 
