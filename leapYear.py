@@ -12,8 +12,10 @@ def calcLeapYear(userInputYear):
     #     #     print(str(userInputYear) + " is a leap year")
     # else:
     #     print(str(userInputYear) + " is not a leap year")
-
-    if (userInputYear % 400) == 0:
-        print(str(userInputYear) + " is a leap year")
+    if (userInputYear % 100) == 0:
+        if (userInputYear % 400) == 0:
+            print(str(userInputYear) + " is a leap year")
+        else:
+            print(str(userInputYear) + " is not a leap year")
     else:
-        print(str(userInputYear) + " is not a leap year")
+        print(str(userInputYear) + " is a leap year")
