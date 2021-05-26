@@ -47,4 +47,16 @@ class TestCalculator(unittest.TestCase):
         # if (actual.find(expected[0])):
         self.assertTrue(20 == actualNumOfBuzz)
 
+    def test_number_fizzbuzz(self):
+        # with unittest.mock.patch('volumeOfCube.retrieve_input', return_value=-1):
+        capturedOutput = io.StringIO()                  # Create StringIO object
+        sys.stdout = capturedOutput                     #  and redirect stdout.
+        fizzBuzz.fizzBuzz()                                     # Call function.
+        sys.stdout = sys.__stdout__                     # Reset redirect.
+        actual = capturedOutput.getvalue().split('\n')
+        actualNumOfBuzz = actual.count('FizzBuzz')
+        # self.assertEqual(actual, expected
+        # if (actual.find(expected[0])):
+        self.assertTrue(20 == actualNumOfBuzz)
+
 
